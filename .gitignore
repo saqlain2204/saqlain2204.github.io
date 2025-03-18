@@ -3,6 +3,5 @@ node_modules
 .env
 .env.local
 .vercel
-*.jpg
 *.jpeg
 *.png 
