@@ -7,7 +7,7 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-color: #333333;
+            --text-color: #000000;
             --accent-color: #666666;
             --border-color: #c4c4c48a;
             --hover-linkedin: #0077b5;
@@ -49,9 +49,9 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -60,30 +60,46 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
             width: 100%;
         }
 
         .header-left {
             flex: 1;
+            margin-right: 2rem;
         }
 
         .header-right {
-            margin-left: 2rem;
+            flex-shrink: 0;
         }
 
         .header-left h1 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             letter-spacing: -0.5px;
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
         }
 
         .social-links a {
             color: var(--accent-color);
-            margin-right: 1.8rem;
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             transition: color 0.5s ease;
+            background-color: var(--card-bg);
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            text-decoration: none;
         }
 
         .social-links a.linkedin:hover {
@@ -103,17 +119,17 @@
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
         }
 
         .theme-toggle {
             position: fixed;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.8rem;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.4rem;
             background-color: var(--theme-toggle-bg);
             color: var(--theme-toggle-color);
             border: none;
@@ -123,8 +139,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
         }
 
         .theme-toggle:hover {
@@ -132,87 +148,84 @@
         }
 
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 1.5rem;
             width: 100%;
         }
 
         section h2 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.3rem;
             position: relative;
             display: inline-block;
+            font-size: 1.2rem;
         }
 
         section h2:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-color);
+            display: none;
         }
 
         .about-me {
-            margin-bottom: 3rem;
-            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            width: 100%;
         }
 
         .about-me p {
-            max-width: 800px;
+            max-width: 100%;
             color: var(--text-color);
+            font-size: 0.9rem;
         }
 
         .skill-category {
-            margin: 1.5rem 0;
+            margin: 0.3rem 0;
         }
 
         .skill-category h3 {
-            
+            margin-bottom: 0.15rem;
             font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-color);
         }
 
         .skill-category p {
-            color: var(--accent-color);
+            color: var(--text-color);
             letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            margin: 0;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
             width: 100%;
-        }
-
-        .paper-implementations .project-grid {
-            max-width: 400px;
-            margin: 0;
         }
 
         .project-card {
             background-color: var(--card-bg);
-            padding: 1.8rem;
-            border-radius: 10px;
+            padding: 1rem;
+            border-radius: 6px;
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        
         .project-card h3 {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.15rem;
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .project-card p {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
             color: var(--accent-color);
         }
 
         .project-link {
             color: var(--accent-color);
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: color 0.3s ease;
-            margin-right: 1rem;
+            margin-right: 0.8rem;
+            text-decoration: none;
         }
 
         .project-link:hover {
@@ -225,23 +238,26 @@
         }
 
         .publications li {
-            padding: 0.8rem 0;
-        }
-
-        .publications li:last-child {
-            border-bottom: none;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
         }
 
         .publication-title {
-            font-weight: 500;
-            display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+            display: inline;
         }
 
         .conference {
             color: var(--accent-color);
-            font-size: 0.9rem;
-            display: block;
+            font-size: 0.8rem;
+            display: inline;
+            margin-left: 0.3rem;
+        }
+
+        .publications li:last-child {
+            border-bottom: none;
         }
 
         .contribution-links {
@@ -249,27 +265,26 @@
         }
 
         .experience-item {
-            padding: 1.8rem;
+            padding: 0.8rem;
             width: 100%;
         }
 
-
         .experience-title {
+            margin-bottom: 0.15rem;
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             display: inline-block;
         }
 
         .experience-company {
-            font-weight: 500;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.15rem;
         }
 
         .experience-duration {
             font-weight: 500;
             color: var(--accent-color);
             float: right;
+            font-size: 0.8rem;
         }
 
         .experience-header {
@@ -280,8 +295,7 @@
         }
 
         .experience-description {
-        
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .experience-description ul {
@@ -292,6 +306,7 @@
         .experience-description li {
             position: relative;
             padding-left: 1.2rem;
+            margin-bottom: 0.05rem;
         }
 
         .experience-description li:before {
@@ -299,6 +314,16 @@
             position: absolute;
             left: 0;
             color: var(--accent-color);
+        }
+
+        .paper-implementations .project-grid {
+            max-width: 300px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .paper-implementations .project-card {
+            text-align: left;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -326,7 +351,7 @@
         </div>
 
         <section class="about-me">
-            <h2>About Me</h2>
+            <h2>About</h2>
             <p>Hey! I'm Mohammed Saqlain, a tech enthusiast who loves solving problems, building smart solutions, and diving into the world of AI and data. Whether it's coding, analyzing trends, or experimenting with new technologies, I thrive on turning ideas into reality. When I'm not in front of my laptop, you'll find me on the cricket field or practicing martial arts — I'm a Black Belt Dan 1!</p>
         </section>
 
@@ -410,8 +435,8 @@
             <h2>Publications</h2>
             <ul>
                 <li>
-                    <span class="publication-title">Comparative Analysis of Traffic Accident Detection with emphasis on explainability of DL Models</span>
-                    <span class="conference">ICMBDC 2024</span>
+                    <span class="publication-title">Comparative Analysis of Traffic Accident Detection with emphasis on explainability of DL Models, ICMBDC 2024</span>
+                    
                 </li>
             </ul>
         </section>
@@ -452,6 +477,7 @@
                         <span class="status-indicator ongoing" title="In Progress"><i class="fas fa-clock" style="color: #FF9800;"></i></span>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 
