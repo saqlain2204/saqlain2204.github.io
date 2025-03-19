@@ -88,17 +88,17 @@
 
         .social-links a {
             color: var(--accent-color);
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             transition: color 0.5s ease;
             background-color: var(--card-bg);
-            padding: 0.5rem;
+            padding: 0.3rem;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.0rem;
+            height: 2.0rem;
             text-decoration: none;
         }
 
@@ -287,7 +287,7 @@
         }
 
         .experience-item {
-            padding: 0.8rem;
+
             width: 100%;
             margin-bottom: 0.8rem;
         }
@@ -513,14 +513,9 @@
     </div>
 
     <script>
-        // Set initial theme based on user preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.dataset.theme = 'dark';
-            document.querySelector('.theme-toggle i').className = 'fas fa-sun';
-        } else {
-            document.body.dataset.theme = 'light';
-            document.querySelector('.theme-toggle i').className = 'fas fa-moon';
-        }
+        // Set initial theme to light mode by default
+        document.body.dataset.theme = 'light';
+        document.querySelector('.theme-toggle i').className = 'fas fa-moon';
 
         function toggleTheme() {
             const isDark = document.body.dataset.theme === 'dark';
