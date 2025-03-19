@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Saqlain's Portfolio</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -143,6 +143,33 @@
             height: 35px;
         }
 
+        @media print {
+            .theme-toggle {
+                display: none;
+            }
+
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #000000;
+                --accent-color: #666666;
+                --border-color: #c4c4c48a;
+                --card-bg: #fdfdfd;
+            }
+
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+            }
+
+            [data-theme="dark"] {
+                --bg-color: #ffffff;
+                --text-color: #000000;
+                --accent-color: #666666;
+                --border-color: #c4c4c48a;
+                --card-bg: #fdfdfd;
+            }
+        }
+
         .theme-toggle:hover {
             transform: scale(1.1);
         }
@@ -198,11 +225,12 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1rem;
             width: 100%;
+            margin-bottom: 0.8rem;
         }
 
         .project-card {
             background-color: var(--card-bg);
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -234,19 +262,21 @@
 
         .publications ul {
             list-style-type: none;
-            margin-left: 0.5rem;
+            margin-left: 0;
         }
 
         .publications li {
             padding: 0.2rem 0;
             display: flex;
             align-items: center;
+            margin-bottom: 0.3rem;
         }
 
         .publication-title {
             margin-bottom: 0;
             font-size: 0.85rem;
             display: inline;
+            margin-left: 0;
         }
 
         .conference {
@@ -256,17 +286,14 @@
             margin-left: 0.3rem;
         }
 
-        .publications li:last-child {
-            border-bottom: none;
-        }
-
-        .contribution-links {
-            margin-top: 0.8rem;
-        }
-
         .experience-item {
             padding: 0.8rem;
             width: 100%;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
         }
 
         .experience-title {
@@ -324,6 +351,10 @@
 
         .paper-implementations .project-card {
             text-align: left;
+        }
+
+        .contribution-links {
+            margin-top: 0.5rem;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
